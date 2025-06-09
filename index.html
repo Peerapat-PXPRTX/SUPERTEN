@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>คำนวณไขมันจากเนื้อ</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <h1><i class="fa-solid fa-drumstick-bite icon"></i>คำนวณไขมันจากเนื้อ</h1>
+
+    <label for="meatType"><i class="fa-solid fa-cow icon"></i>เลือกประเภทเนื้อ:</label>
+    <select id="meatType">
+      <option value="2.6">อกไก่ (ไม่ติดหนัง)</option>
+      <option value="40">หมูสามชั้น</option>
+      <option value="10">หมูสันใน</option>
+      <option value="8">เนื้อวัวไม่ติดมัน</option>
+      <option value="4">ปลานิล</option>
+      <option value="3.6">อกเป็ด (ไม่ติดหนัง)</option>
+      <option value="12">ไก่ติดหนัง</option>
+      <option value="9">เนื้อหมูติดมัน</option>
+      <option value="1.5">เนื้อปลาแซลมอน</option>
+      <option value="5">เนื้อกุ้ง</option>
+    </select>
+
+    <label for="weight"><i class="fa-solid fa-weight-scale icon"></i>น้ำหนักเนื้อ (กรัม):</label>
+    <input type="number" id="weight" placeholder="กรอกน้ำหนักเป็นกรัม" />
+
+    <button onclick="calculateFat()">
+      <i class="fa-solid fa-calculator icon"></i>คำนวณ
+    </button>
+
+    <div class="result" id="result"></div>
+
+    <div style="margin-top: 1.5rem;">
+      <button onclick="toggleHistory()">
+        <i class="fa-solid fa-clock-rotate-left icon"></i> ดูประวัติย้อนหลัง
+      </button>
+    </div>
+
+    <canvas id="fatChart" style="margin-top: 2rem; max-width: 100%; height: 250px;"></canvas>
+
+    <!-- Popup Modal สำหรับประวัติย้อนหลัง -->
+<div id="historyModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeHistory()">&times;</span>
+    <h3><i class="fa-solid fa-history icon"></i> ประวัติการคำนวณ</h3>
+    <ul id="historyList"></ul>
+    <div id="pagination"></div>
+  </div>
+</div>
+<button id="aboutBtn" class="about-btn" title="ข้อมูลคนทำเว็บ">
+  <i class="fa-solid fa-user"></i>
+</button>
+
+<div id="aboutModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <h2>ข้อมูลคนทำเว็บ</h2>
+    <p>ชื่อ: นางสาวจินารัตน์ ศรีคำนวล</p>
+    <p>ชื่อ: นางสาวรชิญาภา เบียงเก๋ </p>
+    <p>ชื่อ: นางสาวรุจิรา บุญสภา </p>
+    <p>ชื่อ: นางสาวปาริชาติ มีกิตติ </p>
+    <p>ชื่อ: นางสาวแพรพิมาศ เจริญชูเกียรติ </p>
+    <p>ชื่อ: นางสาวจุฬาลักษณ์ จงรักษ์ </p>
+    <p>ชื่อ: นางสาวกาญจน์กมล ปัญญาเยาว์</p>
+    <p>ชื่อ: นางสาวณัฏฐณิชา แก้วบุญศรี</p>
+    <p>ชื่อ: นางสาวสุทธิพร อัศม์เดชกุล </p>
+    <p>ชื่อ: นางสาวปรียาวดี นามวงค์</p>
+    <p>ชื่อ: นายพีระพัฒน์ เป็นบุญ</p>
+    <p>อีเมล: peerapat.xprt@gmail.com</p>
+    <p>ขอบคุณที่ใช้เว็บนี้นะครับ 😊</p>
+  </div>
+</div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+
+<footer>
+    <p>© 2025 พัฒนาโดย PEERAPAT PENBOON</p>
+    <p>Student, Faculty of Engineering, Medical Electronics</p>
+</footer>
+
+<style>
+/* ทำให้ footer อยู่ล่างสุดของหน้า */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* ให้ footer อยู่ด้านล่างเสมอ */
+footer {
+    margin-top: auto; /* ดัน footer ไปอยู่ล่างสุด */
+   
+    color: black;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 12px; /* ทำให้ตัวอักษรเล็กลง */
+}
+</style>
+
+
+</html>
